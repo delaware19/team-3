@@ -8,8 +8,9 @@
 <body>
 <div class="container">
     <h1> Are you here to take action or learn more? </h1>
-    <button type="button" onClick="location.href='action.html'">Take Action</button>
-    <button type="button" onClick="location.href='learn.html'">Learn More</button>
+    <a type="button" href = "{% url 'rise-action' %}">Take Action</a>
+    <a type="button" href = "{% url 'rise-learn' %}">Learn More</a>
+    
 </div>
 </body>
 </html>
