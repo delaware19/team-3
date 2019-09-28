@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "not so secret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rise-homeanomics.herokuapp.com']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'herokuapp',
 ]
 
 MIDDLEWARE = [
