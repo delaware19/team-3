@@ -3,7 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def start(request):
-    return HttpResponse('<h1>Enter your state and campaign</h1>')
+    return render(request, 'rise/start.html')
 
 def choice(request):
     return HttpResponse('<h1>Take Action or Learn</h1>')
