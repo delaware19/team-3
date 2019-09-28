@@ -5,6 +5,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from uniauth.decorators import login_required
 
+from .models import Checklist, Person, Deadline
+
+
 def start(request):
     st = request.GET.get('State')
     cache.set('a', st)
@@ -21,12 +24,6 @@ def index(request):
     return render(request, 'rise/index.html')
 
 def choice(request):
-    # learnbutton = request.POST.get("learn")
-    # actionbutton = request.POST.get("action")
-    # if learnbutton:
-    #     return render(request, 'rise/learn.html')
-    # elif actionbutton:
-    #     return render(request, 'rise/action.html')
     return render (request, 'rise/choice.html') 
 
 def action(request):
@@ -58,14 +55,21 @@ def register(request):
 
 
 @login_required
-def checklist(request): 
-    return render(request, 'rise/checklist.html')
+def checklist(request):
+    user = request.user
+    current_state = Checklist.objects.filter(user=user)[0].stateName
+    return render(request, 'rise/checklist.html', {'current_state': current_state})
+
 
 def people(request):
-    return render(request, 'rise/people.html')
+    user = request.user
+    current_state = Checklist.objects.filter(user=user)[0].stateName
+    people = Person.objects.filter(state=current_state)
+    return render(request, 'rise/people.html', {'people': people})
 
 def deadlines(request):
-    return render (request, 'rise/deadlines.html')
+    user = request.user
+    current_state = Checklist.objects.filter(user=user)[0].stateName
+    deadlines = Deadline.objects.filter(state=current_state)
+    return render (request, 'rise/deadlines.html', {'deadlines': deadlines})
 
-def feed(request):
-    return render(request, 'rise/feed.html')
