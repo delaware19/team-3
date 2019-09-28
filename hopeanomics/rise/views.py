@@ -10,6 +10,12 @@ def start(request):
     return render(request, 'rise/start.html') 
 
 def choice(request):
+    learnbutton = request.POST.get("learn")
+    actionbutton = request.POST.get("action")
+    if learnbutton:
+        return render(request, 'rise/learn.html')
+    elif actionbutton:
+        return render(request, 'rise/action.html')
     return render (request, 'rise/choice.html') 
 
 def action(request):
