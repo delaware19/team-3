@@ -6,8 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 
-def start(request):
-    return render(request, 'rise/start.html') 
+def index(request):
+    return render(request, 'rise/index.html')
 
 def choice(request):
     learnbutton = request.POST.get("learn")
