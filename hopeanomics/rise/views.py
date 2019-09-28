@@ -3,7 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def start(request):
-    return render (request, 'rise/start.html') 
+    return render(request, 'rise/start.html') 
 
 def choice(request):
     return render (request, 'rise/choice.html') 
