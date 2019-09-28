@@ -6,8 +6,8 @@ from django.contrib import messages
 from uniauth.decorators import login_required
 
 
-def start(request):
-    return render(request, 'rise/start.html') 
+def index(request):
+    return render(request, 'rise/index.html')
 
 def choice(request):
     # learnbutton = request.POST.get("learn")
