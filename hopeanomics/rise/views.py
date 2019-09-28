@@ -32,4 +32,8 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'rise/register.html', {'form': form})
 
+def people(request):
+    return render (request, 'rise/people.html')
 
+def deadlines(request):
+    return render (deadlines, 'rise/deadlines.html')
