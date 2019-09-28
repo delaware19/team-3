@@ -5,13 +5,14 @@ import requests
 # Create your views here.
 
 def start(request):
-    return render(request, 'rise/start.html')
+    return render(request, 'rise/start.html') 
 
 def choice(request):
-    return HttpResponse('<h1>Take Action or Learn</h1>')
+    return render (request, 'rise/choice.html') 
 
 def action(request):
-    return HttpResponse('<h1>How to Take Action</h1>')
+    return render (request, 'rise/action.html') 
 
 def learn(request):
-    return HttpResponse('<h1>This is your info</h1>')
+    return render (request, 'rise/learn.html') 
+
