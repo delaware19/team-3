@@ -5,7 +5,18 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from uniauth.decorators import login_required
 
+def start(request):
+    st = request.GET.get('State')
+    cache.set('a', st)
+    print(cache.get('a'))
+    return render(request, 'rise/start.html', {})
+    
+def issue(request):
 
+    print(cache.get('a')) 
+    iss = request.GET.get('Issue')
+    return render(request, 'rise/issue.html', {})
+    
 def index(request):
     return render(request, 'rise/index.html')
 
