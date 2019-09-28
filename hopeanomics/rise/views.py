@@ -1,19 +1,33 @@
+# Create your views here.
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from uniauth.decorators import login_required
 
+
 def start(request):
     return render(request, 'rise/start.html') 
 
 def choice(request):
+    learnbutton = request.POST.get("learn")
+    actionbutton = request.POST.get("action")
+    if learnbutton:
+        return render(request, 'rise/learn.html')
+    elif actionbutton:
+        return render(request, 'rise/action.html')
     return render (request, 'rise/choice.html') 
 
 def action(request):
-    return render (request, 'rise/action.html') 
+    return render (request, 'rise/action.html')
 
 def learn(request):
+    peoplebutton = request.POST.get("people")
+    deadlinesbutton = request.POST.get("deadlines")
+    if peoplebutton:
+        return render(request, 'rise/people.html')
+    elif deadlinesbutton:
+        return render(request, 'rise/deadlines.html')
     return render (request, 'rise/learn.html') 
 
 def register(request):
@@ -35,3 +49,12 @@ def register(request):
 @login_required
 def checklist(request): 
     return render(request, 'rise/checklist.html')
+
+def people(request):
+    return render(request, 'rise/people.html')
+
+def deadlines(request):
+    return render (request, 'rise/deadlines.html')
+
+def feed(request):
+    return render(request, 'rise/feed.html')
