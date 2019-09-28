@@ -22,6 +22,12 @@ def action(request):
     return render (request, 'rise/action.html')
 
 def learn(request):
+    peoplebutton = request.POST.get("people")
+    deadlinesbutton = request.POST.get("deadlines")
+    if peoplebutton:
+        return render(request, 'rise/people.html')
+    elif deadlinesbutton:
+        return render(request, 'rise/deadlines.html')
     return render (request, 'rise/learn.html') 
 
 def register(request):
