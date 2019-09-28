@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import json
-import requests
 # Create your views here.
 
 def start(request):
@@ -15,4 +13,7 @@ def action(request):
 
 def learn(request):
     return render (request, 'rise/learn.html') 
+
+
+
 
