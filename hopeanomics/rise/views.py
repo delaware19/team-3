@@ -13,7 +13,7 @@ def choice(request):
     return render (request, 'rise/choice.html') 
 
 def action(request):
-    return render (request, 'rise/action.html') 
+    return render (request, 'rise/action.html')
 
 def learn(request):
     return render (request, 'rise/learn.html') 
@@ -38,6 +38,7 @@ def people(request):
 def deadlines(request):
     return render (request, 'rise/deadlines.html')
 
-def checklist(request):
-    return render (request, 'rise/checklist.html')
-    
+def feed(request):
+    return render(request, 'rise/feed.html')
+
+
