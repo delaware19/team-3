@@ -33,7 +33,11 @@ def register(request):
     return render(request, 'rise/register.html', {'form': form})
 
 def people(request):
-    return render (request, 'rise/people.html')
+    return render(request, 'rise/people.html')
 
 def deadlines(request):
-    return render (deadlines, 'rise/deadlines.html')
+    return render (request, 'rise/deadlines.html')
+
+def checklist(request):
+    return render (request, 'rise/checklist.html')
+    
