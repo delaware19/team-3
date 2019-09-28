@@ -1,6 +1,8 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from uniauth.decorators import login_required
 
 def start(request):
     return render(request, 'rise/start.html') 
@@ -23,8 +25,13 @@ def register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            messages.success(request, f'Your account has been created! You are now able to log in.')
             return redirect('start')
     else:
         form = UserCreationForm()
     return render(request, 'rise/register.html', {'form': form})
 
+
+@login_required
+def checklist(request): 
+    return render(request, 'rise/checklist.html')
