@@ -1,0 +1,18 @@
+https://stackoverflow.com/questions/17599035/django-how-can-i-call-a-view-function-from-template 
+(How to read the "on click" event from button in html)
+
+import mypythoncode
+
+def request_page(request):
+  if(request.GET.get('mybtn')):                                           (1)
+    mypythoncode.mypythonfunction( int(request.GET.get('mytextbox')) )    (2)
+return render(request,'myApp/templateHTML.html')                          (3)
+
+(1) - This line reads the button event. if(buttonClicked == true)
+(2) - This line stores the value for the user input 
+(3) - This line gets the html page specified and brings it to front. If you want a click to go to another page without storing the
+data given in this function then remove (2) and replace it with (3) with proper indententation so that it is nested in the if 
+statement
+***********************************************************************************************************************************
+https://stackoverflow.com/questions/11586038/how-to-get-the-value-from-the-drop-down-box-django 
+(How to read a value from a drop down box in html)
